@@ -1,6 +1,6 @@
 def tipo_producto():
 	producto = 0
-	while producto == 0:
+	while True:
 		print("----------------------------")
 		print('''
 		1. Alimentos
@@ -9,9 +9,10 @@ def tipo_producto():
 		''')
 		print("----------------------------")
 		producto = int(input('Seleccione el tipo de producto: '))
-		if producto != 1 or producto != 2 or producto != 3:
+		if producto == 1 or producto == 2 or producto == 3:
+			break
+		else :
 			print("Opcion no valida")
-			producto = 0
 	return producto
 
 def agregar_producto(producto, productos):
