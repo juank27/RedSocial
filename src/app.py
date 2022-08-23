@@ -18,6 +18,11 @@ def index():
 	}
    return render_template("index.html", info=info)
 
+#ruta con parametros
+@app.route("/perfil/<nombre>")
+def perfil(nombre):
+	return render_template("perfil.html", name=nombre)
+
 #ruta de error 404
 @app.errorhandler(404)
 def page_not_found(error):
