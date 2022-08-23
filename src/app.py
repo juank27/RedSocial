@@ -14,6 +14,7 @@ def index():
 		'semestre': 9,
 		'telefono': '331 123 4567',
 		'asignaturas': asignaturas,
+		'lenasignatura' : len(asignaturas),
 	}
    return render_template("index.html", info=info)
 

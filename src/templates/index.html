@@ -1,23 +1,18 @@
-<!DOCTYPE html>
-<html lang="es">
-
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	<link rel="stylesheet" href="/static/index.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='./css/index.css' ) }}">
 </head>
-
-<body>
-	<h1>Hola!!</h1>
-	<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est dolores dolorum unde veniam, deleniti at repudiandae
-		commodi voluptatibus maiores facilis sint ea nobis voluptatum saepe labore voluptates quod enim corporis?</p>
-	<h2>{{info.nombre}}</h2>
-	<h2>Estudiante de ingenieria IX</h2>
-	<h2>Universidad de Cundinamarca</h2>
-	<h2>Facultad de ingenieria</h2>
-	<h2>Programacion web</h2>
-</body>
-
-</html>
+{% extends './layout.html' %}
+{% block titulo %}
+	Index
+{% endblock %}
+{% block body %}
+	<h1>Esta es la pagina de inicio</h1>
+	{% if info.lenasignatura > 0 %}
+	<ul>{% for i in info.asignaturas %}
+		<li>{{i}}</li>
+		{% endfor %}
+	</ul>
+	{% else %}
+	<h1>No hay asignaturas registradas.</h1>
+	{%endif%}
+{% endblock %}
